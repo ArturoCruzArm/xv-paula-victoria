@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producción Foro 7 - XV Años 26 Septiembre 2026</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1f2937;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #9b6fc9;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.8;
+        }
+
+        .badge-internal {
+            display: inline-block;
+            background: #9b6fc9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #9b6fc9;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #9b6fc9;
+        }
+
+        .info-box {
+            background: #374151;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .info-box h3 {
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            margin-bottom: 0.3rem;
+        }
+
+        .info-box a {
+            color: #34d399;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            background: #374151;
+            border-left: 4px solid #9b6fc9;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checklist li:hover {
+            background: #4b5563;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            font-size: 1.3rem;
+            color: #9b6fc9;
+        }
+
+        .checklist li.done {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .checklist li.done:before {
+            content: "✓";
+            color: #34d399;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #9b6fc9;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -2.4rem;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #1f2937;
+            border: 3px solid #9b6fc9;
+        }
+
+        .timeline-item.done:before {
+            background: #34d399;
+            border-color: #34d399;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .status-done {
+            background: #065f46;
+            color: #34d399;
+        }
+
+        .status-pending {
+            background: #78350f;
+            color: #fbbf24;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .price-box .total {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .price-box .detail {
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .equipment-item {
+            background: #374151;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .equipment-item .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 Producción Foro 7</h1>
+            <p>XV Años - Sábado 26 de Septiembre, 2026</p>
+            <span class="badge-internal">USO INTERNO</span>
+        </div>
+
+        <div class="content">
+            <!-- Resumen del Evento -->
+            <section class="section">
+                <h2 class="section-title">📋 Resumen del Evento</h2>
+                <div class="grid-2">
+                    <div class="info-box">
+                        <h3>⛪ Misa - 6:00 PM</h3>
+                        <p><strong>Templo del Señor de la Salud</strong></p>
+                        <p>Jardín Ayende 124, Col. Obregón, León</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jard%C3%ADn%20Ayende%20124%20Obreg%C3%B3n%20Le%C3%B3n%20Guanajuato" target="_blank">Ver en Maps</a></p>
+                        <p style="margin-top: 0.5rem; color: #fbbf24;">Llegar: 5:15 PM (familia 5:45)</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>🎉 Evento - 7:30 PM a 1:30 AM</h3>
+                        <p><strong>Salón de Eventos Sociales Maya</strong></p>
+                        <p style="color:#fbbf24;">⚠ Dirección pendiente de confirmar</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Sal%C3%B3n%20de%20Eventos%20Sociales%20Maya%20Le%C3%B3n%20Guanajuato" target="_blank">Buscar en Maps</a></p>
+                        <p style="margin-top: 0.5rem;">Cobertura contratada: 6 hrs de fiesta</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Itinerario del cliente -->
+            <section class="section">
+                <h2 class="section-title">⏱️ Itinerario (confirmado por la clienta)</h2>
+                <div class="timeline">
+                    <div class="timeline-item"><strong>5:45 PM</strong><p>Llegada al templo · misa 6:00 PM</p></div>
+                    <div class="timeline-item"><strong>7:30 – 8:00 PM</strong><p>Recepción en el salón</p></div>
+                    <div class="timeline-item"><strong>8:00 – 9:00 PM</strong><p>Cena</p></div>
+                    <div class="timeline-item"><strong>9:00 – 9:30 PM</strong><p><strong>Vals y baile sorpresa</strong> — momento de dron interior / grúa y 2 cámaras</p></div>
+                    <div class="timeline-item"><strong>9:30 – 11:30 PM</strong><p>DJ</p></div>
+                    <div class="timeline-item"><strong>11:30 PM – 1:00 AM</strong><p>Norteño y banda</p></div>
+                    <div class="timeline-item"><strong>1:00 – 1:30 AM</strong><p>Salida del salón</p></div>
+                </div>
+                <div class="info-box" style="margin-top:1rem;">
+                    <p><strong>Cálculo de cobertura:</strong> 7:30 PM + 6 hrs = <strong>1:30 AM</strong>. El itinerario de la clienta
+                    termina exactamente a esa hora, así que no se prevé hora extra. Si la fiesta se alarga, se cobra $500 MXN/hora.</p>
+                    <p style="margin-top:.5rem;"><strong>Dron:</strong> conviene volarlo antes de la misa y a la salida del templo
+                    (luz de día ~6:00–7:00 PM); de noche en el salón solo si hay exterior iluminado.</p>
+                </div>
+            </section>
+
+            <!-- Datos del Cliente -->
+            <section class="section">
+                <h2 class="section-title">👤 Datos del Cliente</h2>
+                <div class="info-box">
+                    <p><strong>Quinceañera:</strong> PAULA VICTORIA RIVERA CHÁVEZ</p>
+                    <p><strong>Contratante:</strong> Mayra Lizbeth González Ramírez</p>
+                    <p><strong>Contacto:</strong> <a href="https://wa.me/5214775866231">477 586 6231</a></p>
+                    <p><strong>Papá:</strong> <span style="color:#fbbf24;">pendiente</span></p>
+                    <p><strong>Mamá:</strong> <span style="color:#fbbf24;">pendiente</span></p>
+                    <p><strong>Madrina Principal:</strong> <span style="color:#fbbf24;">pendiente</span></p>
+                    <p><strong>Paquete:</strong> Paquete Completo + dron 4K en cortesía</p>
+                    <p><strong>Cobertura:</strong> Sesión previa + 1 hr misa + 6 hrs fiesta</p>
+                    <p><strong>Mesa:</strong> 2 lugares reservados para personal</p>
+                    <p style="margin-top:.6rem;"><strong>Nota:</strong> el dron lo había pagado la prima de la contratante;
+                    se aclaró por WhatsApp el 18/09 que ya venía incluido y no se vuelve a cobrar.</p>
+                </div>
+            </section>
+
+            <!-- Finanzas -->
+            <section class="section">
+                <h2 class="section-title">💰 Finanzas</h2>
+                <div class="grid-2">
+                    <div class="price-box">
+                        <div class="total">$6,500 MXN</div>
+                        <div class="detail">Total del paquete (dron bonificado)</div>
+                    </div>
+                    <div class="info-box">
+                        <p>✅ <strong>Apartado:</strong> $1,500 (16 septiembre 2026, transferencia BBVA)</p>
+                        <p>⏳ <strong>Saldo:</strong> $5,000</p>
+                        <p>📅 <strong>Límite pago:</strong> 18 septiembre 2026 (8 días antes)</p>
+                        <p style="color:#fbbf24;">⚠ Verificar antes del evento si ya entró el saldo</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline -->
+            <section class="section">
+                <h2 class="section-title">🕐 Timeline del Proyecto</h2>
+                <div class="timeline">
+                    <div class="timeline-item done">
+                        <strong>14 Sep 2026</strong> <span class="status-badge status-done">✓</span>
+                        <p>Primer contacto por WhatsApp (recomendación)</p>
+                    </div>
+                    <div class="timeline-item done">
+                        <strong>16 Sep 2026</strong> <span class="status-badge status-done">✓</span>
+                        <p>Contrato firmado · apartado $1,500 recibido</p>
+                    </div>
+                    <div class="timeline-item done">
+                        <strong>18 Sep 2026</strong> <span class="status-badge status-done">✓</span>
+                        <p>Sesión previa en Parque Explora — 40 fotos</p>
+                    </div>
+                    <div class="timeline-item done">
+                        <strong>22 Sep 2026</strong> <span class="status-badge status-done">✓</span>
+                        <p>Itinerario recibido de la clienta</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>18 Sep 2026</strong> <span class="status-badge status-pending">⏳</span>
+                        <p>Fecha límite saldo $5,000 — confirmar si ya se cubrió</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>26 Septiembre 2026</strong> <span class="status-badge status-pending">⏳</span>
+                        <p>DÍA DEL EVENTO</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Checklist Sesión -->
+            <section class="section">
+                <h2 class="section-title">📸 Checklist - Sesión Previa</h2>
+                <div class="info-box" style="margin-bottom:1rem;">
+                    <p>✅ <strong>Realizada el 18 de septiembre de 2026</strong> en el Parque Explora
+                    (junto a Cinépolis / Torre BBVA). 40 tomas, vestido lila con ramo rosa.</p>
+                    <p>Maestros en <code>G:\eventos\2026\09\26</code> · WebP publicados en <code>imagenes/</code></p>
+                </div>
+                <ul class="checklist" id="checklist-sesion">
+                    <li onclick="this.classList.toggle('done')">Respaldar maestros de la sesión en 2 discos</li>
+                    <li onclick="this.classList.toggle('done')">Editar y retocar las 40 tomas</li>
+                    <li onclick="this.classList.toggle('done')">Publicar WebP en el repo (hecho)</li>
+                    <li onclick="this.classList.toggle('done')">Avisar a la clienta que ya puede usar el selector</li>
+                </ul>
+            </section>
+
+            <!-- Checklist Día del Evento -->
+            <section class="section">
+                <h2 class="section-title">🎬 Checklist - Día del Evento</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3 style="color: #60a5fa; margin-bottom: 1rem;">Equipo Foto</h3>
+                        <ul class="checklist">
+                            <li onclick="this.classList.toggle('done')">Cámara principal</li>
+                            <li onclick="this.classList.toggle('done')">Cámara backup</li>
+                            <li onclick="this.classList.toggle('done')">Lentes (35mm, 50mm, 85mm)</li>
+                            <li onclick="this.classList.toggle('done')">3 Flashes</li>
+                            <li onclick="this.classList.toggle('done')">Baterías cargadas</li>
+                            <li onclick="this.classList.toggle('done')">Baterías repuesto</li>
+                            <li onclick="this.classList.toggle('done')">Tarjetas formateadas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #60a5fa; margin-bottom: 1rem;">Equipo Video</h3>
+                        <ul class="checklist">
+                            <li onclick="this.classList.toggle('done')">Cámara video principal</li>
+                            <li onclick="this.classList.toggle('done')">Cámara video secundaria</li>
+                            <li onclick="this.classList.toggle('done')">2 Luces LED</li>
+                            <li onclick="this.classList.toggle('done')">Trípodes</li>
+                            <li onclick="this.classList.toggle('done')">Micrófono/audio</li>
+                            <li onclick="this.classList.toggle('done')">Baterías video</li>
+                            <li onclick="this.classList.toggle('done')">Tarjetas video</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h3 style="color: #60a5fa; margin-bottom: 1rem;">🚁 Dron</h3>
+                    <ul class="checklist">
+                        <li onclick="this.classList.toggle('done')">Dron cargado</li>
+                        <li onclick="this.classList.toggle('done')">Baterías dron (mín. 3)</li>
+                        <li onclick="this.classList.toggle('done')">Control remoto</li>
+                        <li onclick="this.classList.toggle('done')">Tarjeta SD dron</li>
+                        <li onclick="this.classList.toggle('done')">Verificar clima</li>
+                        <li onclick="this.classList.toggle('done')">Verificar permisos vuelo</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h3 style="color: #60a5fa; margin-bottom: 1rem;">General</h3>
+                    <ul class="checklist">
+                        <li onclick="this.classList.toggle('done')">Confirmar saldo recibido ($5,000)</li>
+                        <li onclick="this.classList.toggle('done')">Confirmar dirección exacta del Salón Maya</li>
+                        <li onclick="this.classList.toggle('done')">Llegar 45 min antes a misa (5:15 PM)</li>
+                        <li onclick="this.classList.toggle('done')">Volar dron con luz de día (salida del templo)</li>
+                        <li onclick="this.classList.toggle('done')">Ubicar mesa reservada para personal</li>
+                        <li onclick="this.classList.toggle('done')">Verificar enchufes para carga</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Checklist Post-Evento -->
+            <section class="section">
+                <h2 class="section-title">💻 Checklist - Post-Evento</h2>
+                <ul class="checklist">
+                    <li onclick="this.classList.toggle('done')">Respaldar fotos (2 discos)</li>
+                    <li onclick="this.classList.toggle('done')">Respaldar video (2 discos)</li>
+                    <li onclick="this.classList.toggle('done')">Respaldar material dron</li>
+                    <li onclick="this.classList.toggle('done')">Editar fotografías</li>
+                    <li onclick="this.classList.toggle('done')">Editar video (musicalizar, titular)</li>
+                    <li onclick="this.classList.toggle('done')">Integrar tomas de dron</li>
+                    <li onclick="this.classList.toggle('done')">Montar videoclip para proyección en el evento</li>
+                    <li onclick="this.classList.toggle('done')">Subir fotos del evento al selector</li>
+                    <li onclick="this.classList.toggle('done')">Cliente selecciona 100 fotos + 1 ampliación</li>
+                    <li onclick="this.classList.toggle('done')">Imprimir 100 fotos 5x7"</li>
+                    <li onclick="this.classList.toggle('done')">Confirmar medida de ampliación (50x60 vs 40x50) e imprimir con marco</li>
+                    <li onclick="this.classList.toggle('done')">Grabar USB con película editada</li>
+                    <li onclick="this.classList.toggle('done')">Preparar caja de fotos</li>
+                    <li onclick="this.classList.toggle('done')">Entregar material completo</li>
+                </ul>
+            </section>
+
+            <!-- Entregables -->
+            <section class="section">
+                <h2 class="section-title">📦 Entregables</h2>
+                <div class="equipment-grid">
+                    <div class="equipment-item">
+                        <div class="icon">📷</div>
+                        <p><strong>100 fotos</strong></p>
+                        <p>5x7 pulgadas</p>
+                    </div>
+                    <div class="equipment-item">
+                        <div class="icon">💿</div>
+                        <p><strong>USB</strong></p>
+                        <p>Película editada</p>
+                    </div>
+                    <div class="equipment-item">
+                        <div class="icon">🖼️</div>
+                        <p><strong>Ampliación</strong></p>
+                        <p>50x60 cm con marco</p>
+                    </div>
+                    <div class="equipment-item">
+                        <div class="icon">🎞️</div>
+                        <p><strong>Videoclip</strong></p>
+                        <p>Proyección en evento</p>
+                    </div>
+                    <div class="equipment-item">
+                        <div class="icon">🚁</div>
+                        <p><strong>Tomas Dron</strong></p>
+                        <p>En video</p>
+                    </div>
+                    <div class="equipment-item">
+                        <div class="icon">🌐</div>
+                        <p><strong>Invitación Web</strong></p>
+                        <p>Digital</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // Guardar estado de checklist en localStorage
+        document.querySelectorAll('.checklist li').forEach((item, index) => {
+            const key = 'xv-sep26-check-' + index;
+            if (localStorage.getItem(key) === 'done') {
+                item.classList.add('done');
+            }
+            item.addEventListener('click', function() {
+                if (this.classList.contains('done')) {
+                    localStorage.setItem(key, 'done');
+                } else {
+                    localStorage.removeItem(key);
+                }
+            });
+        });
+    </script>
+    <script src="visitas.js?v=1"></script>
+<script src="js/foro7-footer.js?v=1"></script>
+</body>
+</html>

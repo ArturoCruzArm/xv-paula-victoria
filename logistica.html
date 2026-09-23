@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística - XV Años Paula Victoria</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f1eafa 0%, #e6dbf5 100%);
+            color: #333;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #8b5fbf 0%, #5e3e8f 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 2.5rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #8b5fbf;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #8b5fbf;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f1eafa 0%, #e6dbf5 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: #5e3e8f;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        .info-card a {
+            color: #8b5fbf;
+            font-weight: 600;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #8b5fbf 0%, #5e3e8f 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -2.5rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #8b5fbf;
+        }
+
+        .timeline-item.done:before {
+            background: #10b981;
+            border-color: #10b981;
+        }
+
+        .status-done {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #f1eafa;
+            border-left: 4px solid #8b5fbf;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .checklist li .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .checklist li .text strong {
+            color: #5e3e8f;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #8b5fbf 0%, #5e3e8f 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .price-box .total {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .price-box .detail {
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #8b5fbf 0%, #5e3e8f 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .note-box strong {
+            color: #92400e;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media print {
+            .nav-links {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Logística del Evento</h1>
+            <p>XV Años Paula Victoria Rivera Chávez · Sábado 26 de Septiembre, 2026</p>
+
+            <div class="nav-links">
+                <a href="index.html">Invitación</a>
+                <a href="selector.html">Selector</a>
+                <a href="album.html">Álbum</a>
+                <a href="contrato.html">Contrato</a>
+                <a href="logistica.html">Logística</a>
+                <a href="preparativos.html">Preparativos</a>
+                <a href="datos.html">Datos</a>
+                <a href="datos-edicion.html">Datos Video</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Información del Evento -->
+            <section class="section">
+                <h2 class="section-title">📅 Información del Evento</h2>
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>⛪ Ceremonia Religiosa</h3>
+                        <p><strong>Hora:</strong> 6:00 PM <em>(llegada 5:45 PM)</em></p>
+                        <p><strong>Lugar:</strong> Templo del Señor de la Salud</p>
+                        <p><strong>Dirección:</strong> Jardín Ayende 124, Col. Obregón, León, Gto.</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jard%C3%ADn%20Ayende%20124%20Obreg%C3%B3n%20Le%C3%B3n%20Guanajuato" target="_blank">Ver en Google Maps</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎉 Recepción</h3>
+                        <p><strong>Hora:</strong> 7:30 PM a 1:30 AM</p>
+                        <p><strong>Lugar:</strong> Salón de Eventos Sociales Maya</p>
+                        <p><strong>Dirección:</strong> <span style="color:#c0392b;">Pendiente de confirmar</span></p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Sal%C3%B3n%20de%20Eventos%20Sociales%20Maya%20Le%C3%B3n%20Guanajuato" target="_blank">Buscar en Google Maps</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Itinerario -->
+            <section class="section">
+                <h2 class="section-title">🕐 Itinerario de la Fiesta</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>5:45 PM</strong>
+                        <p>Llegada al templo (la misa empieza 6:00 PM en punto)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>7:30 – 8:00 PM</strong>
+                        <p>Recepción en el salón</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>8:00 – 9:00 PM</strong>
+                        <p>Cena</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>9:00 – 9:30 PM</strong>
+                        <p><strong>Vals y baile sorpresa</strong></p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>9:30 – 11:30 PM</strong>
+                        <p>DJ</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>11:30 PM – 1:00 AM</strong>
+                        <p>Norteño y banda</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>1:00 – 1:30 AM</strong>
+                        <p>Salida del salón</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline de Pagos -->
+            <section class="section">
+                <h2 class="section-title">💰 Resumen de Pagos</h2>
+                <div class="grid-2">
+                    <div class="price-box">
+                        <div class="total">$6,500 MXN</div>
+                        <div class="detail">Paquete Completo · dron 4K en cortesía</div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Estado de Pagos</h3>
+                        <p><span class="status-done">✓ Apartado:</span> $1,500 (16 septiembre 2026, transferencia)</p>
+                        <p><span class="status-pending">⏳ Saldo:</span> $5,000</p>
+                        <p><strong>Fecha límite:</strong> 18 de septiembre 2026</p>
+                        <p style="font-size: 0.9em; color: #666;">(8 días antes del evento)</p>
+                    </div>
+                </div>
+
+                <div class="note-box">
+                    <strong>Desglose:</strong> Paquete Completo $6,500 + Dron 4K $1,200 &minus; descuento por dron en cortesía $1,200 = <strong>$6,500 MXN</strong>.
+                    El dron ya había sido cubierto por la prima de la contratante, por eso no se cobra de nuevo.
+                </div>
+            </section>
+
+            <!-- Cronología -->
+            <section class="section">
+                <h2 class="section-title">🗓️ Fechas Importantes</h2>
+                <div class="timeline">
+                    <div class="timeline-item done">
+                        <strong>16 de Septiembre 2026</strong> <span class="status-done">✓ Completado</span>
+                        <p>Contrato firmado y apartado de $1,500 recibido</p>
+                    </div>
+                    <div class="timeline-item done">
+                        <strong>18 de Septiembre 2026</strong> <span class="status-done">✓ Completado</span>
+                        <p>Sesión fotográfica previa en el Parque Explora (40 fotos)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>18 de Septiembre 2026</strong> <span class="status-pending">⏳ Por confirmar</span>
+                        <p>Fecha límite para liquidar el saldo ($5,000)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>26 de Septiembre 2026</strong>
+                        <p><strong>DÍA DEL EVENTO</strong> — misa 6:00 PM, fiesta 7:30 PM</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Hasta 60 días hábiles después</strong>
+                        <p>Entrega del material (fotos impresas, USB y ampliación enmarcada)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lo que necesitamos de ti -->
+            <section class="section">
+                <h2 class="section-title">✅ Lo que necesitamos de ti</h2>
+                <ul class="checklist">
+                    <li>
+                        <span class="icon">💳</span>
+                        <div class="text">
+                            <strong>Liquidar el saldo</strong><br>
+                            $5,000 MXN. La fecha de contrato era el 18 de septiembre; confírmanos cuándo lo cubres.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">📍</span>
+                        <div class="text">
+                            <strong>Dirección exacta del Salón Maya</strong><br>
+                            La necesitamos para llegar con tiempo y para el mapa de la invitación web
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">👨‍👩‍👧</span>
+                        <div class="text">
+                            <strong>Nombres de papás, padrinos y madrinas</strong><br>
+                            Para que aparezcan en la invitación web y en los créditos del video
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🎵</span>
+                        <div class="text">
+                            <strong>Canción del vals y del baile sorpresa</strong><br>
+                            Y la canción que quieres de fondo en la invitación web
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">👗</span>
+                        <div class="text">
+                            <strong>Código de vestimenta y color reservado</strong><br>
+                            Para avisar a los invitados en la invitación
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🍽️</span>
+                        <div class="text">
+                            <strong>Reservar mesa para el personal</strong><br>
+                            2 lugares en mesa para el equipo de foto y video durante el evento
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🖼️</span>
+                        <div class="text">
+                            <strong>Seleccionar fotos para impresión</strong><br>
+                            Después del evento: 100 fotos impresas + 1 para la ampliación enmarcada
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="note-box">
+                    <strong>Tu selector de fotos ya está listo:</strong> las 40 fotos de la sesión previa están cargadas en
+                    <a href="selector.html">selector.html</a>. Ahí marcas cuáles quieres impresas, cuál va en la ampliación
+                    y cuáles se ven en el álbum digital que puedes compartir por WhatsApp.
+                </div>
+            </section>
+
+            <!-- Paquete Incluido -->
+            <section class="section">
+                <h2 class="section-title">📦 Tu Paquete Incluye</h2>
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3>🎬 Cobertura</h3>
+                        <p>✓ Sesión fotográfica previa</p>
+                        <p>✓ 1 hora de ceremonia (misa)</p>
+                        <p>✓ 6 horas de fiesta</p>
+                        <p>✓ <strong>Tomas con dron 4K (cortesía)</strong></p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📷 Entregables</h3>
+                        <p>✓ 100 fotos impresas 5x7"</p>
+                        <p>✓ Película en USB editada y musicalizada</p>
+                        <p>✓ Videoclip para proyección en el evento</p>
+                        <p>✓ Ampliación 50x60 cm con marco</p>
+                        <p>✓ Invitación web digital</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contacto -->
+            <section class="section">
+                <div class="contact-box">
+                    <h3 style="margin-bottom: 1rem;">📞 Contacto Foro 7</h3>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5214779203776">477-920-3776</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:foro7producciones@gmail.com">foro7producciones@gmail.com</a></p>
+                    <p style="margin-top: 1rem;"><strong>Local:</strong> Padilla 112, Cumbres de Arbide, León, Gto.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="visitas.js?v=1"></script>
+<script src="js/foro7-footer.js?v=1"></script>
+</body>
+</html>
