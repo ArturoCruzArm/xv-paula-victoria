@@ -13,7 +13,7 @@ const SHELL = [
     './css/selector.css',
     './css/album.css',
     './js/config-2.js',
-    './js/photos.js',
+    './js/photos-2.js',
     './js/supabase-api.js',
     './js/selector.js',
     './visitas.js',
@@ -45,7 +45,7 @@ self.addEventListener('fetch', e => {
     if (url.origin !== self.location.origin) return;   // Supabase y fuentes: sin tocar
     if (e.request.method !== 'GET') return;
 
-    if (url.pathname.includes('/imagenes/')) {
+    if (url.pathname.includes('/img/')) {
         e.respondWith(
             caches.open(CACHE_IMAGES).then(cache =>
                 cache.match(e.request).then(hit =>

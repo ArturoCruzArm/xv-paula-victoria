@@ -8,13 +8,13 @@
     <meta name="description" content="¡Acompáñanos a celebrar mis XV años! Sábado 26 de septiembre de 2026 · León, Gto.">
     <meta property="og:title" content="XV Años de Paula Victoria">
     <meta property="og:description" content="Sábado 26 de septiembre de 2026 · León, Guanajuato">
-    <meta property="og:image" content="imagenes/IMG_3288.webp">
+    <meta property="og:image" content="img/IMG_3288.webp">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="imagenes/IMG_3288.webp">
+    <link rel="preload" as="image" href="img/IMG_3288.webp">
     <style>
         /* ============================================================
            Paleta tomada de la sesión previa (Parque Explora, 18 sep):
@@ -83,7 +83,7 @@
         }
         .hero-bg {
             position: absolute; inset: 0;
-            background: url('imagenes/IMG_3312.webp') center 22% / cover no-repeat;
+            background: url('img/IMG_3312.webp') center 22% / cover no-repeat;
             transform: scale(1.04);
         }
         .hero-bg::after {
@@ -97,7 +97,7 @@
         /* En pantalla ancha la foto es horizontal y Paula queda al centro:
            el texto baja al camino de grava para no taparle la cara. */
         @media (min-width: 900px) {
-            .hero-bg { background-image: url('imagenes/IMG_3309.webp'); background-position: center 32%; }
+            .hero-bg { background-image: url('img/IMG_3309.webp'); background-position: center 32%; }
             .hero-bg::after {
                 background: linear-gradient(180deg,
                     rgba(61,41,87,.42) 0%,
@@ -336,7 +336,7 @@
         }
         .splash-screen::before {
             content: ''; position: absolute; inset: 0;
-            background: url('imagenes/IMG_3288.webp') center 28% / cover no-repeat;
+            background: url('img/IMG_3288.webp') center 28% / cover no-repeat;
         }
         .splash-screen::after {
             content: ''; position: absolute; inset: 0;
@@ -529,14 +529,15 @@
             </p>
 
             <div class="galeria" id="galeriaGrid">
-                <figure><img src="imagenes/thumb/IMG_3288.webp" data-full="imagenes/IMG_3288.webp" alt="Paula Victoria, retrato" loading="lazy" width="640" height="960"></figure>
-                <figure><img src="imagenes/thumb/IMG_3305.webp" data-full="imagenes/IMG_3305.webp" alt="Paula Victoria con su ramo" loading="lazy" width="640" height="960"></figure>
-                <figure><img src="imagenes/thumb/IMG_3286.webp" data-full="imagenes/IMG_3286.webp" alt="Paula Victoria en el parque" loading="lazy" width="640" height="960"></figure>
-                <figure><img src="imagenes/thumb/IMG_3283.webp" data-full="imagenes/IMG_3283.webp" alt="Detalle del vestido" loading="lazy" width="640" height="960"></figure>
-                <figure class="ancha"><img src="imagenes/thumb/IMG_3309.webp" data-full="imagenes/IMG_3309.webp" alt="Paula Victoria junto al lago" loading="lazy" width="960" height="640"></figure>
-                <figure><img src="imagenes/thumb/IMG_3308.webp" data-full="imagenes/IMG_3308.webp" alt="Paula Victoria sonriendo" loading="lazy" width="640" height="960"></figure>
-                <figure><img src="imagenes/thumb/IMG_3312.webp" data-full="imagenes/IMG_3312.webp" alt="Paula Victoria frente al lago" loading="lazy" width="640" height="960"></figure>
-                <figure><img src="imagenes/thumb/IMG_3295.webp" data-full="imagenes/IMG_3295.webp" alt="Paula Victoria en el pasto" loading="lazy" width="640" height="960"></figure>
+                <figure><img src="img/thumb/IMG_3288.webp" data-full="img/IMG_3288.webp" alt="Paula Victoria, retrato" loading="lazy" width="300" height="450"></figure>
+                <figure><img src="img/thumb/IMG_3305.webp" data-full="img/IMG_3305.webp" alt="Paula Victoria con su ramo" loading="lazy" width="300" height="450"></figure>
+                <figure><img src="img/thumb/IMG_3286.webp" data-full="img/IMG_3286.webp" alt="Paula Victoria en el parque" loading="lazy" width="300" height="450"></figure>
+                <figure><img src="img/thumb/IMG_3283.webp" data-full="img/IMG_3283.webp" alt="Detalle del vestido" loading="lazy" width="300" height="450"></figure>
+                <!-- Ocupa dos columnas: el thumb de 300 px se vería borroso, va la completa. -->
+                <figure class="ancha"><img src="img/IMG_3309.webp" data-full="img/IMG_3309.webp" alt="Paula Victoria junto al lago" loading="lazy" width="2048" height="1365"></figure>
+                <figure><img src="img/thumb/IMG_3308.webp" data-full="img/IMG_3308.webp" alt="Paula Victoria sonriendo" loading="lazy" width="300" height="450"></figure>
+                <figure><img src="img/thumb/IMG_3312.webp" data-full="img/IMG_3312.webp" alt="Paula Victoria frente al lago" loading="lazy" width="300" height="450"></figure>
+                <figure><img src="img/thumb/IMG_3295.webp" data-full="img/IMG_3295.webp" alt="Paula Victoria en el pasto" loading="lazy" width="300" height="450"></figure>
             </div>
 
             <p style="text-align:center;margin-top:2rem;">

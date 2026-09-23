@@ -1,7 +1,7 @@
 /* ============================================================
    SELECTOR DE FOTOS — XV Años Paula Victoria Rivera Chávez
    Requiere, en este orden:
-     js/config-2.js  ·  js/photos.js  ·  js/supabase-api.js  ·  js/selector.js
+     js/config-2.js  ·  js/photos-2.js  ·  js/supabase-api.js  ·  js/selector.js
    ============================================================ */
 (function () {
 'use strict';

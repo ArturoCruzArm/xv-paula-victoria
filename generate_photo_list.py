@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Regenera js/photos.js a partir de los archivos de la carpeta imagenes/.
+Regenera js/photos-2.js a partir de los archivos de la carpeta img/.
 
 Uso:
     python generate_photo_list.py
 
 Estructura esperada:
-    imagenes/           -> foto completa (se abre en el modal / lightbox)
-    imagenes/thumb/          -> miniatura del mismo nombre (se usa en la rejilla)
+    img/           -> foto completa (se abre en el modal / lightbox)
+    img/thumb/          -> miniatura del mismo nombre (se usa en la rejilla)
 
 Si una foto no tiene miniatura, la rejilla usa la completa.
 Orden natural (foto2 antes que foto10). Acepta .webp .jpg .jpeg .png .avif.
@@ -25,9 +25,9 @@ except ImportError:
     from urllib import quote               # py2
 
 AQUI    = os.path.dirname(os.path.abspath(__file__))
-CARPETA = os.path.join(AQUI, 'imagenes')
+CARPETA = os.path.join(AQUI, 'img')
 THUMBS  = os.path.join(CARPETA, 'thumb')
-SALIDA  = os.path.join(AQUI, 'js', 'photos.js')
+SALIDA  = os.path.join(AQUI, 'js', 'photos-2.js')
 EXTS    = ('.webp', '.jpg', '.jpeg', '.png', '.avif')
 
 CABECERA = """/* ============================================================
@@ -82,24 +82,24 @@ def main():
     thumbs = []
     for f in archivos:
         if hay_thumbs and os.path.isfile(os.path.join(THUMBS, f)):
-            thumbs.append(url('imagenes/thumb/%s' % f))
+            thumbs.append(url('img/thumb/%s' % f))
             con_thumb += 1
         else:
-            thumbs.append(url('imagenes/%s' % f))
+            thumbs.append(url('img/%s' % f))
 
     bloque = lambda xs: ',\n'.join('    "%s"' % x for x in xs)
 
     with open(SALIDA, 'w', encoding='utf-8') as fh:
         fh.write(CABECERA % (
             len(archivos), con_thumb,
-            bloque(url('imagenes/%s' % f) for f in archivos),
+            bloque(url('img/%s' % f) for f in archivos),
             bloque(thumbs),
             bloque(archivos),
         ))
 
     print('OK  %d fotos (%d con miniatura) -> %s' % (len(archivos), con_thumb, SALIDA))
     if archivos and con_thumb < len(archivos):
-        print('AVISO: %d fotos sin miniatura en imagenes/thumb/' % (len(archivos) - con_thumb))
+        print('AVISO: %d fotos sin miniatura en img/thumb/' % (len(archivos) - con_thumb))
     print('Recuerda subir la version del script en los HTML:  js/photos.js?v=N')
     return 0
 
