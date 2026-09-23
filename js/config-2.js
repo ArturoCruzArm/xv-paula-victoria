@@ -30,7 +30,7 @@ window.EVENT_CONFIG = {
             '100 fotografías impresas en 5x7 pulgadas',
             'Película en USB editada y musicalizada',
             'Videoclip para proyección durante el evento',
-            'Fotografía ampliada 50x60 cm con marco',
+            'Fotografía ampliada 40x50 cm con marco',
             'Tomas aéreas con dron 4K (cortesía)',
             'Cobertura: 1 hora de ceremonia + 6 horas de fiesta',
             'Sesión fotográfica previa (18 de septiembre, Parque Explora)'
@@ -39,7 +39,7 @@ window.EVENT_CONFIG = {
 
     // ── Límites del selector ──────────────────────────────────
     limiteImpresion:    100,
-    limiteAmpliacion:   1,      // la ampliación 50x60 con marco
+    limiteAmpliacion:   1,      // la ampliación 40x50 con marco
     limiteAlbum:        null,   // null = sin límite
     costoFotoAdicional: 15,     // MXN por foto impresa extra
 
@@ -54,7 +54,7 @@ window.EVENT_CONFIG = {
    filtro, botones del modal, colores, textos de ayuda y los
    filtros válidos de album.html?filtro=…
    Paula SÍ lleva "Ampliación" (su Paquete Completo incluye una
-   fotografía ampliada 50x60 cm con marco).
+   fotografía ampliada 40x50 cm con marco).
    ============================================================ */
 (function (C) {
 window.HERRAMIENTAS = [
@@ -76,10 +76,10 @@ window.HERRAMIENTAS = [
         id:      'ampliacion',
         icono:   '🖼️',
         nombre:  'Ampliación',
-        textoBtn:'Ampliación 50x60',
+        textoBtn:'Ampliación 40x50',
         limite:  C.limiteAmpliacion,
         columna: 'ampliacion',     // columna booleana en Supabase
-        ayuda:   'La foto que quieres <strong>ampliada a 50x60 cm y enmarcada</strong>. Tu paquete incluye ' +
+        ayuda:   'La foto que quieres <strong>ampliada a 40x50 cm y enmarcada</strong>. Tu paquete incluye ' +
                  '<strong>1</strong>, así que elige la que más te guste: es la que va a colgarse en tu casa. ' +
                  'Si marcas más de una te decimos cuánto cuesta cada ampliación extra.'
     },

@@ -1,6 +1,6 @@
 /* ============================================================
    BOTÓN DE AYUDA — documenta cada herramienta del selector.
-   Se auto-genera desde window.HERRAMIENTAS (js/config.js).
+   Se auto-genera desde window.HERRAMIENTAS (js/config-2.js).
    Se usa en selector.html y en album.html.
    ============================================================ */
 (function () {

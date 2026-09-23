@@ -1,7 +1,7 @@
 /* Service Worker — XV Años Paula Victoria Rivera Chávez
    Shell: red primero con respaldo en caché.
    Imágenes: caché primero (las fotos no cambian). */
-const CACHE_SHELL  = 'paulavictoria-shell-v1';
+const CACHE_SHELL  = 'paulavictoria-shell-v2';
 const CACHE_IMAGES = 'paulavictoria-images-v1';
 
 const SHELL = [
@@ -12,7 +12,7 @@ const SHELL = [
     './css/base.css',
     './css/selector.css',
     './css/album.css',
-    './js/config.js',
+    './js/config-2.js',
     './js/photos.js',
     './js/supabase-api.js',
     './js/selector.js',
