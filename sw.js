@@ -13,7 +13,7 @@ const SHELL = [
     './css/selector.css',
     './css/album.css',
     './js/config-2.js',
-    './js/photos-2.js',
+    './js/photos.1d86936b.js',
     './js/supabase-api.js',
     './js/selector.js',
     './visitas.js',
