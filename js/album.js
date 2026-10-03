@@ -162,6 +162,8 @@ function abrirLightbox(pos) {
     document.getElementById('lbImagen').src = photos[idx];
     document.getElementById('lbImagen').alt = 'Foto ' + (idx + 1);
     document.getElementById('lbContador').textContent = `${pos + 1} / ${indicesVista.length}`;
+    const elegir = document.getElementById('lbElegir');
+    if (elegir) elegir.href = 'selector.html?foto=' + (idx + 1);
     lb.classList.add('activo');
     document.body.style.overflow = 'hidden';
     [pos + 1, pos - 1].forEach(p => {

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css?v=1">
-<link rel="stylesheet" href="css/album.css?v=1">
+<link rel="stylesheet" href="css/album.css?v=2">
 <script>
     /* Con ?filtro=… la página es SOLO álbum: sin herramientas ni ayuda.
        Sin ?filtro se muestran las herramientas y los filtros normales. */
@@ -67,7 +67,10 @@
     <button class="lb-btn" id="lbPrev"   aria-label="Anterior">&#10094;</button>
     <button class="lb-btn" id="lbNext"   aria-label="Siguiente">&#10095;</button>
     <img id="lbImagen" src="" alt="">
-    <button class="lb-btn" id="lbDescargar">⬇ Descargar</button>
+    <div class="lb-acciones">
+        <a class="lb-btn" id="lbElegir" href="selector.html">✨ Elegir esta foto</a>
+        <button class="lb-btn" id="lbDescargar">⬇ Descargar</button>
+    </div>
 </div>
 
 <footer class="footer">
@@ -78,7 +81,7 @@
 <script src="js/config-2.js"></script>
 <script src="js/photos.145aa7ee.js"></script>
 <script src="js/supabase-api.js?v=1"></script>
-<script src="js/album.js?v=1"></script>
+<script src="js/album.js?v=2"></script>
 <script src="js/ayuda.js?v=1"></script>
 <script src="visitas.js?v=1"></script>
 <script src="js/foro7-footer.js?v=1"></script>

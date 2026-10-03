@@ -1,7 +1,7 @@
 /* Service Worker — XV Años Paula Victoria Rivera Chávez
    Shell: red primero con respaldo en caché.
    Imágenes: caché primero (las fotos no cambian). */
-const CACHE_SHELL  = 'paulavictoria-shell-v3';
+const CACHE_SHELL  = 'paulavictoria-shell-v4';
 const CACHE_IMAGES = 'paulavictoria-images-v1';
 
 const SHELL = [

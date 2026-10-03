@@ -649,6 +649,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sc = parseInt(localStorage.getItem(KEY_SCROLL) || '0', 10);
     if (sc > 0) requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, sc)));
 
+    // album.html → «Elegir esta foto» llega como selector.html?foto=N
+    const pedida = parseInt(new URLSearchParams(location.search).get('foto'), 10);
+    if (pedida >= 1 && pedida <= photos.length) {
+        history.replaceState(null, '', location.pathname);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            document.querySelector('.photo-card[data-index="' + (pedida - 1) + '"]')
+                ?.scrollIntoView({ block: 'center' });
+            abrirModal(pedida - 1);
+        }));
+    }
+
     // Acciones
     document.getElementById('btnExport')?.addEventListener('click', descargarReporte);
     document.getElementById('btnCopy')?.addEventListener('click', copiarResumen);
